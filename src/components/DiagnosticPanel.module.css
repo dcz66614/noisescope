@@ -1,0 +1,36 @@
+/* P006 T011 — 诊断面板样式（组件级 CSS module，不改全局样式）。 */
+.stage {
+  background: #ffffff;
+  border: 1px solid #d8d4c9;
+  padding: 12px;
+}
+
+.title {
+  margin: 0 0 4px;
+}
+
+.timeLine {
+  margin: 0 0 12px;
+  color: #5a6472;
+}
+
+.statusNote {
+  margin: 12px 0;
+}
+
+.errorAlert {
+  margin: 12px 0;
+  padding: 8px 12px;
+  background: #fdecea;
+  border: 1px solid #b3261e;
+  color: #b3261e;
+}
+
+.note {
+  margin: 12px 0;
+  color: #5a6472;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}

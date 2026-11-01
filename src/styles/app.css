@@ -1,0 +1,152 @@
+/* P006 T009 — 全局布局与无障碍样式（项目书 §9.1、§9.6）。 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--noise-bg);
+  color: var(--noise-text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* 键盘焦点必须可见（§9.6）。 */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--noise-focus);
+  outline-offset: 2px;
+}
+
+.noise-header {
+  height: var(--noise-header-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 16px;
+  background: var(--noise-panel);
+  border-bottom: 1px solid var(--noise-border);
+}
+
+.noise-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.noise-header p {
+  margin: 2px 0 0;
+  color: var(--noise-muted);
+  font-size: 13px;
+}
+
+.noise-layout {
+  display: grid;
+  grid-template-columns: var(--noise-controls-width) minmax(0, 1fr) var(--noise-explainer-width);
+  gap: 16px;
+  padding: 16px;
+  max-width: 100%;
+}
+
+.noise-panel {
+  background: var(--noise-panel);
+  border: 1px solid var(--noise-border);
+  border-radius: 8px;
+  padding: 16px;
+  min-width: 0;
+}
+
+.noise-controls label {
+  display: block;
+  margin: 10px 0 2px;
+  font-size: 13px;
+  color: var(--noise-muted);
+}
+
+.noise-controls input,
+.noise-controls select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--noise-border);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--noise-text);
+}
+
+.noise-controls button,
+.noise-stage button {
+  margin: 8px 8px 0 0;
+  padding: 6px 12px;
+  border: 1px solid var(--noise-border);
+  border-radius: 4px;
+  background: var(--noise-panel);
+  color: var(--noise-text);
+  cursor: pointer;
+}
+
+.noise-controls button:disabled,
+.noise-stage button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.noise-alert {
+  background: var(--noise-error-bg);
+  color: var(--noise-error);
+  border: 1px solid var(--noise-error);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 12px 0;
+}
+
+.noise-status {
+  font-weight: 600;
+}
+
+.noise-stale-note {
+  color: var(--noise-muted);
+  font-size: 13px;
+}
+
+.noise-stage section,
+.noise-audit {
+  overflow-x: auto;
+}
+
+.noise-audit {
+  margin: 0 16px 16px;
+}
+
+/* 768—1179 px：上下堆叠，控制栏折叠（用 <details> 实现，不改布局语义）。 */
+@media (max-width: 1179px) {
+  .noise-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 小于 768 px：保留完整查看、参数输入与审计滚动，整页不横向溢出。 */
+@media (max-width: 767px) {
+  .noise-layout {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .noise-audit {
+    margin: 0 8px 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

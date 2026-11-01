@@ -1,0 +1,18 @@
+/* P006 T009 — 设计令牌（项目书 §9.1）。其他组件任务用各自 CSS module，
+   不得并发修改本任务的全局样式。 */
+:root {
+  --noise-bg: #f5f4ef;
+  --noise-panel: #ffffff;
+  --noise-text: #172033;
+  --noise-muted: #5a6472;
+  --noise-border: #d8d4c9;
+  --noise-p: #007f86;
+  --noise-q: #b95f10;
+  --noise-closure: #7a7a7a;
+  --noise-error: #b3261e;
+  --noise-error-bg: #fdecea;
+  --noise-focus: #005fcc;
+  --noise-header-height: 64px;
+  --noise-controls-width: 260px;
+  --noise-explainer-width: 320px;
+}

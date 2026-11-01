@@ -1,0 +1,71 @@
+/* P006 T012 — 文件交互样式（组件级 CSS module，不改全局样式）。 */
+.stage {
+  background: #ffffff;
+  border: 1px solid #d8d4c9;
+  padding: 12px;
+}
+
+.title {
+  margin: 0 0 4px;
+}
+
+.sectionTitle {
+  margin: 0 0 4px;
+}
+
+.note {
+  margin: 0 0 12px;
+  color: #5a6472;
+}
+
+.statusNote {
+  margin: 12px 0;
+}
+
+.errorAlert {
+  margin: 12px 0;
+  padding: 8px 12px;
+  background: #fdecea;
+  border: 1px solid #b3261e;
+  color: #b3261e;
+}
+
+.notice {
+  margin: 12px 0;
+  padding: 8px 12px;
+  border: 1px solid #d8d4c9;
+}
+
+.importSection,
+.exportSection {
+  margin: 12px 0;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  min-height: 96px;
+  box-sizing: border-box;
+}
+
+.textarea:focus-visible,
+.fileLabel input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+.fileList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage {
+    transition: none;
+  }
+}
